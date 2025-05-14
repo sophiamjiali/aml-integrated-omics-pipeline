@@ -20,7 +20,7 @@ An R-based pipeline for integrated differential analysis of DNA methylation and 
 
 
 ## Repository Layout
-The following repository layout includes the provided BeatAML example dataset. 
+The following repository layout includes the provided BeatAML example dataset and all data provided for download.
 
 ```bash
 .
