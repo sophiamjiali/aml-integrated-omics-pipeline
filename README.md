@@ -1,8 +1,8 @@
 # Integrative Analysis of Molecular Subtypes in Acute Myeloid Leukemia
 
-_Repository: aml-epi-transcriptome-integration_  
-
 An R-based pipeline for integrated differential analysis of DNA methylation and RNA-seq data in acute myeloid leukemia (AML)
+
+Full data (both provided in this repository and omitted) are available here: https://utoronto-my.sharepoint.com/:f:/g/personal/sophiamjia_li_mail_utoronto_ca/ElHaP2t2nvpAi7xc0wz1zF8B1Em2vXN65rb-lLvH86eH1w?e=xNUiKx (expires June 12 2025)
 
 ## Table of Contents
 - [Repository Layout](#repository-layout)
