@@ -2,7 +2,7 @@
 
 _Repository: aml-epi-transcriptome-integration_  
 
-An R-based, automated, and reproducible workflow for integrated DNA methylation and RNA-seq analysis in acute myeloid leukemia. Implements differential methylation (DMG) and expression (DEG) comparisons between NPM1-mutant and PML-RARA fusion subtypes from the Beat AML cohort, with modular design such that adapter files can be added to extend the pipeline to other AML subtypes or datasets.
+An R-based pipeline for integrated differential analysis of DNA methylation and RNA-seq data in acute myeloid leukemia (AML)
 
 ## Table of Contents
 - [Repository Layout](#repository-layout)
@@ -27,13 +27,17 @@ The following repository layout includes the provided BeatAML example dataset.
 ├── config/
 │   ├── default_config.R
 │   └── beataml_config.R
+|
+├── templates/
+│   ├── template_slurm_analysis.R
+│   └── template_slurm_job.sh
 │
 ├── utilities/
+│   ├── convert_txt_to_csv.R
 │   └── setup.R
 │
 ├── adapters/
-│   ├── methylation_adapter.R
-│   ├── expression_adapter.R
+│   ├── data_adapter.R
 │   ├── generate_id_mapping.R
 │   └── generate_annotations.R
 │
@@ -46,46 +50,56 @@ The following repository layout includes the provided BeatAML example dataset.
 │
 ├── data/
 │   ├── default/
-│   │   ├── raw/
-│   │   └── processed/
+│   │   └── epic_cross_reactive_probes.csv
 │   └── beataml/
 │       ├── raw/
 │       │   ├── beataml_beta_values.csv
-│       │   └── beataml_star_gene_counts.csv
+│       │   ├── beataml_detection_pval.csv
+│       │   ├── beataml_star_gene_counts.csv
+│       │   ├── beataml_clinical.xlsx
+│       │   └── beataml_sample_mapping.xlsx
 │       └── processed/
-│           ├── beataml_methylation_data.rds
-│           └── beataml_expression_data.rds
+│           ├── beataml_adapted_methylation.rds
+│           ├── beataml_adapted_expression.rds
+│           ├── beataml_adapted_detection_pval.rds
+│           ├── beataml_unprocessed_methylation.rds
+│           ├── beataml_unprocessed_expression.rds
+│           ├── beataml_processed_methylation.rds
+│           ├── beataml_processed_expression.rds
+│           ├── beataml_mapping.rds
+│           ├── beataml_cpg_annotation.rds
+│           └── beataml_promoter_annotation.rds
 │
 ├── results/
-│   ├── default/
-│   │   ├── 01_methylation/
-│   │   │   └── slurm/
-│   │   │   │   ├── scripts/
-│   │   │   │   └── data/
-│   │   ├── 02_expression/
-│   │   └── 03_integration
 │   └── beataml/
 │       ├── 01_methylation/
 │       │   ├── slurm/
 │       │   │   ├── scripts/
-│       │   │   │   ├── beataml_slurm.sh
-│       │   │   │   └── beataml_slurm.R
+│       │   │   │   ├── beataml_slurm_analysis.R
+│       │   │   │   └── beataml_slurm_job.sh
 │       │   │   ├── data/
 │       │   │   │   ├── beataml_slurm_data.sh
 │       │   │   │   ├── beataml_slurm_info.sh
 │       │   │   │   └── beataml_slurm_design.R
-│       │   ├── beat_dmgs.rds
-│       │   ├── beat_dmgs.xlsx
-│       │   ├── beat_methylation_summary.rds
-│       │   └── beat_methylation_summary.xlsx
+│       │   ├── beataml_raw_dmrss.rds
+│       │   ├── beataml_significant_dmrs.rds
+│       │   ├── beataml_dmgs.rds
+│       │   └── beataml_dmgs.xlsx
 │       ├── 02_expression/
-│       │   ├── beat_degs.rds
-│       │   └── beat_degs.xlsx
+│       │   ├── beataml_degs.rds
+│       │   └── beataml_degs.xlsx
 │       └── 03_integration
-│           ├── beat_anticorrelated.rds
+│           ├── beataml_background_genes.xlsx
+│           ├── beataml_common_genes.rds
+│           ├── beataml_common_genes.xlsx
+│           ├── beataml_correlation.rds
+│           ├── beataml_correlation_xlsx
+│           ├── beataml_correlated_genes.rds
+│           ├── beataml_correlated_genes.xlsx
 │           └── beat_anticorrelated.xlsx
 │
 ├── run_pipeline.R
+├── aml-integrated-omics-pipeline.Rproj
 └── README.md
 ```
 
