@@ -22,6 +22,12 @@ Full data (both provided in this repository and omitted) are available here: htt
 - 
 ## Project Overview
 
+### Features
+
+**1. Preprocessing**
+**2. Differential Analysis**
+**3. Integration**
+
 ## Features
 
 ## Repository Structure
