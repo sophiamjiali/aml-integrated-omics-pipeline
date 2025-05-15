@@ -126,3 +126,7 @@ The following repository structure includes the provided BeatAML example dataset
 
 ## Assays Supported
 - Cross-reactive probes for EPIC assay fetched from Pidsley et al., 2016
+
+## Contact
+
+Contact Sophia Li at sophiamjia.li@utoronto.ca for questions regarding pipeline usage or data access.
