@@ -17,16 +17,16 @@ Full data (both provided in this repository and omitted) are available here: htt
 - [Usage](#usage)
 - [Data Availability](#data-availability)
 - [Methods](#methods)
-- [Assays Supported](#assays-supported)
+- [Example Dataset](#example-dataset)
 - [Contact]
 - 
 ## Project Overview
 
-### Features
+### Workflow
 
-**1. Preprocessing**
-**2. Differential Analysis**
-**3. Integration**
+**1. Preprocessing Methylation**
+**2. Preprocessing Expression**
+**3. Differential**
 
 ## Features
 
@@ -124,8 +124,8 @@ The following repository structure includes the provided BeatAML example dataset
 
 ## Methods
 
-## Assays Supported
-- Cross-reactive probes for EPIC assay fetched from Pidsley et al., 2016
+## Example Dataset
+An example of the full pipeline on the Beat AML dataset is provided. The dataset contains 
 
 ## Contact
 
