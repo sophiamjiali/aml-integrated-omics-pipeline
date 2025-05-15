@@ -6,13 +6,15 @@ Full data (both provided in this repository and omitted) are available here: htt
 
 ## Table of Contents
 - [Project Overview](#project-overview)
-- [Features](#features)
+  - [Features](#features)
+    - [1. Preprocessing](#preprocessing)
+    - [2. Differential Analysis](#differential-analysis)
+    - [3. Integration](#integration)
 - [Repository Structure](#repository-structure)
 - [Installation](#installation)
   - [Prerequisites](#prerequisites)
   - [Dependency Installation](#dependency-installation)
 - [Usage](#usage)
-- [Input and Output](#input-and-output)
 - [Data Availability](#data-availability)
 - [Methods](#methods)
 - [Assays Supported](#assays-supported)
@@ -113,12 +115,6 @@ The following repository structure includes the provided BeatAML example dataset
 ## Usage
 
 ## Configuration
-
-## Inputs and Outputs
-
-## Pipeline Adaption
-  ### Adapting to other Subtypes
-  ### Adapting to other Datasets
 
 ## Methods
 
