@@ -5,22 +5,24 @@ An R-based pipeline for integrated differential analysis of DNA methylation and 
 Full data (both provided in this repository and omitted) are available here: https://utoronto-my.sharepoint.com/:f:/g/personal/sophiamjia_li_mail_utoronto_ca/ElHaP2t2nvpAi7xc0wz1zF8B1Em2vXN65rb-lLvH86eH1w?e=xNUiKx (expires June 12 2025)
 
 ## Table of Contents
-- [Repository Layout](#repository-layout)
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Repository Structure](#repository-structure)
 - [Installation](#installation)
   - [Prerequisites](#prerequisites)
   - [Dependency Installation](#dependency-installation)
 - [Usage](#usage)
-- [Configuration](#configuration)
-- [Inputs and Outputs](#inputs-and-outputs)
-- [Pipeline Adaption](#pipeline-adaption)
-  - [Adapting to other Subtypes](#adapting-to-other-subtypes)
-  - [Adapting to other Datasets](#adapting-to-other-datasets)
+- [Input and Output](#input-and-output)
+- [Data Availability](#data-availability)
 - [Methods](#methods)
 - [Assays Supported](#assays-supported)
+- [Contact]
+## Project Overview
 
+## Features
 
-## Repository Layout
-The following repository layout includes the provided BeatAML example dataset and all data provided for download.
+## Repository Structure
+The following repository structure includes the provided BeatAML example dataset and all data provided for download.
 
 ```bash
 .
