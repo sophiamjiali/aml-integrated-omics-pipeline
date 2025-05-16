@@ -28,7 +28,11 @@ A list of differentially methylated genes, differentially expressed genes, and c
 
 ### Workflow
 
-The
+The pipeline consists of the following main steps:
+
+**0.5. Configuration**
+
+The user-specified configuration file is loaded and project directories are set up.
 
 **1. Preprocessing Methylation**
 **2. Preprocessing Expression**
