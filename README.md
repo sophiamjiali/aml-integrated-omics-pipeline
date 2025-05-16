@@ -2,8 +2,6 @@
 
 An R-based pipeline for integrated differential analysis of DNA methylation and RNA-seq data in acute myeloid leukemia (AML).
 
-Full data (both provided in this repository and omitted) are available here: https://utoronto-my.sharepoint.com/:f:/g/personal/sophiamjia_li_mail_utoronto_ca/ElHaP2t2nvpAi7xc0wz1zF8B1Em2vXN65rb-lLvH86eH1w?e=xNUiKx (expires June 12 2025)
-
 ## Table of Contents
 - [Project Overview](#project-overview)
   - [Features](#features)
@@ -22,11 +20,21 @@ Full data (both provided in this repository and omitted) are available here: htt
 - 
 ## Project Overview
 
+This repository contains a pipeline for integrated differential analysis of DNA methylation and RNA-seq data for acute myeloid leukemia (AML) datasets. 
+
+It assumes that DNA methylation data, detection p-values, and RNA-seq data are provided. Subsetting into cohorts require clinical data and a sample mapping file. The provided data must have non-zero sample overlap between DNA methylation and RNA-seq data availability. Any level of preprocessing is acceptable and is not required to be matched between the data. Thresholds and parameters are set in configuration files.
+
+A list of differentially methylated genes, differentially expressed genes, and correlated genes are produced, along with intermediates at major processing points.
+
 ### Workflow
+
+The
 
 **1. Preprocessing Methylation**
 **2. Preprocessing Expression**
-**3. Differential**
+**3. Differential Methylation**
+**4. Differential Expression**
+**5. Integration**
 
 ## Features
 
@@ -120,12 +128,16 @@ The following repository structure includes the provided BeatAML example dataset
 
 ## Usage
 
+## Data Availability
+
+Full data (both provided in this repository and omitted) are available here: https://utoronto-my.sharepoint.com/:f:/g/personal/sophiamjia_li_mail_utoronto_ca/ElHaP2t2nvpAi7xc0wz1zF8B1Em2vXN65rb-lLvH86eH1w?e=xNUiKx (expires June 12 2025)
+
 ## Configuration
 
 ## Methods
 
 ## Example Dataset
-An example of the full pipeline on the Beat AML dataset is provided. The dataset contains 
+An example of the full pipeline on the Beat AML dataset is provided. The dataset contains DNA methylation data of 298 samples and RNA-seq data of 
 
 ## Contact
 
