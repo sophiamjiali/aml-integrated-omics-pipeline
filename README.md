@@ -30,12 +30,22 @@ A list of differentially methylated genes, differentially expressed genes, and c
 
 The pipeline consists of the following main steps:
 
-**0.5. Configuration**
+**1. Configuration**
 
-The user-specified configuration file is loaded and project directories are set up.
+The user-specified configuration file is loaded and project directories are set up. 
 
-**1. Preprocessing Methylation**
-**2. Preprocessing Expression**
+**2. Data Import**
+
+Raw data (beta values, detection p-values, gene-level counts) and metadata (clinical data, sample mapping) are loaded. Adapters standardize the raw data and metadata into compatible formats. 
+
+**3. Preprocessing**
+
+The standardized data is subsetted by cohort and preprocessed for quality control, filtering, imputation, and normalization as specified in the associated configuration file. 
+
+**4. Differential Analysis**
+
+
+
 **3. Differential Methylation**
 **4. Differential Expression**
 **5. Integration**
