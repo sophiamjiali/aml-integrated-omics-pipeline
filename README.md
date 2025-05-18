@@ -146,6 +146,15 @@ The following repository structure includes the provided BeatAML example dataset
 
 Full data (both provided in this repository and omitted) are available here: https://utoronto-my.sharepoint.com/:f:/g/personal/sophiamjia_li_mail_utoronto_ca/ElHaP2t2nvpAi7xc0wz1zF8B1Em2vXN65rb-lLvH86eH1w?e=xNUiKx (expires June 12 2025)
 
+### Dataset Compartments
+**Configuration:** This compartment stores the configuration files for each dataset, including the default reference.
+```
+├── config/
+│   ├── default_config.R
+│   ├── ...
+│   └── beataml_config.R
+```
+
 ## Configuration
 
 ## Methods
