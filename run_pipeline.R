@@ -41,7 +41,7 @@ if (length(args) != 1) {
 }
 
 # --- Load the configuration file ---
-config_path <- file.path(, args[[1]])
+config_path <- here::here("config", args[[1]])
 config <- load_config(config_path)
 
 # --- Set up key directories associated with the given dataset ---

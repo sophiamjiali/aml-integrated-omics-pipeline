@@ -16,8 +16,12 @@
 # --- Load all libraries needed for the full pipeline ---
 setup_libraries <- function() {
   
+  # --- Download all dependencies ---
+  install_dependencies()
+  
   message("[Setup] Loading required libraries...")
 
+  # --- Load necessary libraries ---
   suppressPackageStartupMessages({
     library(SummarizedExperiment)
     library(GenomicRanges)
@@ -30,9 +34,6 @@ setup_libraries <- function() {
     library(IlluminaHumanMethylationEPICanno.ilm10b4.hg19)
     library(BSgenome.Hsapiens.UCSC.hg19)
     library(EnsDb.Hsapiens.v75)
-    library(ComplexHeatmap)
-    library(RColorBrewer)
-    library(circlize)
     library(Mfuzz)
     library(cluster)
     library(dplyr)
@@ -41,9 +42,6 @@ setup_libraries <- function() {
     library(tibble)
     library(writexl)
     library(readxl)
-    library(ggplot2)
-    library(gridExtra)
-    library(glue)
     library(doRNG)
     library(here)
     library(BiocParallel)
@@ -53,8 +51,6 @@ setup_libraries <- function() {
     library(factoextra)
     library(metap)
     library(matrixStats)
-    library(ggrepel)
-    library(rtracklayer)
   })
   
   message("[Setup] Libraries loaded successfully.")
@@ -63,7 +59,69 @@ setup_libraries <- function() {
   invisible(NULL)
 }
 
-# ===| 2. Load all Sources |====================================================
+# ===| 2. Install Dependencies |================================================
+
+# --- Install package dependencies that are not already installed ---
+install_dependencies <- function() {
+  
+  message("[Setup] Installing dependencies...")
+  
+  # --- List the required packages for the pipeline ---
+  required_packages <- c(
+    "SummarizedExperiment",
+    "GenomicRanges",
+    "GenomicFeatures",
+    "minfi",
+    "limma",
+    "impute",
+    "ChAMP",
+    "edgeR",
+    "IlluminaHumanMethylationEPICanno.ilm10b4.hg19",
+    "BSgenome.Hsapiens.UCSC.hg19",
+    "EnsDb.Hsapiens.v75",
+    "Mfuzz",
+    "cluster",
+    "dplyr",
+    "tidyr",
+    "vroom",
+    "tibble",
+    "writexl",
+    "readxl",
+    "doRNG",
+    "here",
+    "BiocParallel",
+    "apeglm",
+    "preprocessCore",
+    "doParallel",
+    "factoextra",
+    "metap",
+    "matrixStats"
+    )
+  
+  # --- Install BiocManager if not already installed ---
+  if (!requireNamespace("BiocManager", quietly = TRUE)) {
+    install.packages("BiocManager")
+  }
+  
+  # --- Install all packages as necessary ---
+  for (pkg in required_packages) {
+    if (!requireNamespace(pkg, quietly = TRUE)) {
+      
+      tryCatch({
+        BiocManager::install(pkg, ask = FALSE, update = FALSE)
+      }, error = function(e) {
+        install.packages(pkg)
+      })
+    }
+  }
+  
+  message("[Setup] Dependencies successfully installed.")
+  
+  # --- Return invisibly ---
+  invisible(NULL)
+}
+
+# ===| 3. Load all Sources |====================================================
 
 # --- Loads all source scripts ---
 load_sources <- function() {
@@ -78,7 +136,7 @@ load_sources <- function() {
   source(here::here("workflow/05_integration.R"))
 }
 
-# ===| 3. Load Data Paths |=====================================================
+# ===| 4. Load Data Paths |=====================================================
 
 # --- Set up and define file paths to main directories ---
 setup_directories <- function(dataset_name) {
@@ -115,7 +173,7 @@ setup_directories <- function(dataset_name) {
 }
 
 
-# ===| 3. Load Configurations |=================================================
+# ===| 5. Load Configurations |=================================================
 
 # --- Fetch configurations for the current dataset ---
 load_config <- function(config_path) {
