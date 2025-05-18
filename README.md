@@ -114,7 +114,7 @@ The following repository structure includes the provided BeatAML example dataset
 │       │   │   │   ├── beataml_slurm_data.sh
 │       │   │   │   ├── beataml_slurm_info.sh
 │       │   │   │   └── beataml_slurm_design.R
-│       │   ├── beataml_raw_dmrss.rds
+│       │   ├── beataml_raw_dmrs.rds
 │       │   ├── beataml_significant_dmrs.rds
 │       │   ├── beataml_dmgs.rds
 │       │   └── beataml_dmgs.xlsx
@@ -162,19 +162,58 @@ Full data (both provided in this repository and omitted) are available here: htt
 │   ├── beataml_clinical.xlsx
 │   └── beataml_sample_mapping.xlsx
 ```
-**Processed:** This compartment stores the processed input data outputted from the adapter and preprocessing files. They are now standardized to entire the pipeline, where intermediate files are generated post-adaption, pre-processing, and post-processing. The annotation files generated for the dataset are stored here. 
+**Processed:** This compartment stores the processed input data outputted from the adapter and preprocessing files. They are standardized to enter the pipeline, where intermediate files are generated post-adaption, pre-processing, and post-processing. The annotation files generated for the dataset are additionally stored here. 
 ```
-│       └── processed/
-│           ├── beataml_adapted_methylation.rds
-│           ├── beataml_adapted_expression.rds
-│           ├── beataml_adapted_detection_pval.rds
-│           ├── beataml_unprocessed_methylation.rds
-│           ├── beataml_unprocessed_expression.rds
-│           ├── beataml_processed_methylation.rds
-│           ├── beataml_processed_expression.rds
-│           ├── beataml_mapping.rds
-│           ├── beataml_cpg_annotation.rds
-│           └── beataml_promoter_annotation.rds
+├── processed/
+│   ├── beataml_adapted_methylation.rds
+│   ├── beataml_adapted_expression.rds
+│   ├── beataml_adapted_detection_pval.rds
+│   ├── beataml_unprocessed_methylation.rds
+│   ├── beataml_unprocessed_expression.rds
+│   ├── beataml_processed_methylation.rds
+│   ├── beataml_processed_expression.rds
+│   ├── beataml_mapping.rds
+│   ├── beataml_cpg_annotation.rds
+│   └── beataml_promoter_annotation.rds
+```
+**Slurm:** This compartment stores the data and script files needed to submit the differentially methlyated regions (DMRs) using the Bumphunter function from the minfi package. Input data, R scrips, and slurm submission scripts are generated during differential analysis of the provided methylation data to be submitted to a high-performance computing cluster (HPC).
+```
+├── slurm/
+│   ├── scripts/
+│   │   ├── beataml_slurm_analysis.R
+│   │   └── beataml_slurm_job.sh
+│   └── data/
+│       ├── beataml_slurm_data.sh
+│       ├── beataml_slurm_info.sh
+│       └── beataml_slurm_design.R
+```
+**01. Methylation:** This compartment stores the slurm compartment and results of differential methylation analysis. Intermediate and final result files are stored here in both R-native (RDS) and excel file (XLSX) formats.
+```
+├── 01_methylation/
+│   ├── slurm/
+│   |   └── ...
+│   ├── beataml_raw_dmrs.rds
+│   ├── beataml_significant_dmrs.rds
+│   ├── beataml_dmgs.rds
+│   └── beataml_dmgs.xlsx
+```
+**02. Expression:** This compartment stores the results of differential expression analysis. Final result files are stored here in both R-native (RDS) and excel file (XLSX) formats.
+```
+├── 02_expression/
+│   ├── beataml_degs.rds
+│   └── beataml_degs.xlsx
+```
+**03. Integration:** This compartment stores the results of integrative analysis of the differential methylation and expression analysis results. Correlation results of all identified genes and genes filtered for significance are stored here in both R-native (RDS) and excel file (XLSX) formats.
+```
+└── 03_integration
+│   ├── beataml_background_genes.xlsx
+│   ├── beataml_common_genes.rds
+│   ├── beataml_common_genes.xlsx
+│   ├── beataml_correlation.rds
+│   ├── beataml_correlation_xlsx
+│   ├── beataml_correlated_genes.rds
+│   ├── beataml_correlated_genes.xlsx
+│   └── beataml_anticorrelated.xlsx
 ```
 
 ## Configuration
