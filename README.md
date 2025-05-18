@@ -154,6 +154,28 @@ Full data (both provided in this repository and omitted) are available here: htt
 │   ├── ...
 │   └── beataml_config.R
 ```
+**Raw:** This compartment stores the raw data files used as input for the pipeline. It is necessary to provide methylation, expression, and metadata into this file.
+```
+├── raw/
+│   ├── beataml_beta_values.csv
+│   ├── beataml_detection_pval.csv
+│   ├── beataml_clinical.xlsx
+│   └── beataml_sample_mapping.xlsx
+```
+**Processed:** This compartment stores the processed input data outputted from the adapter and preprocessing files. They are now standardized to entire the pipeline, where intermediate files are generated post-adaption, pre-processing, and post-processing. The annotation files generated for the dataset are stored here. 
+```
+│       └── processed/
+│           ├── beataml_adapted_methylation.rds
+│           ├── beataml_adapted_expression.rds
+│           ├── beataml_adapted_detection_pval.rds
+│           ├── beataml_unprocessed_methylation.rds
+│           ├── beataml_unprocessed_expression.rds
+│           ├── beataml_processed_methylation.rds
+│           ├── beataml_processed_expression.rds
+│           ├── beataml_mapping.rds
+│           ├── beataml_cpg_annotation.rds
+│           └── beataml_promoter_annotation.rds
+```
 
 ## Configuration
 
