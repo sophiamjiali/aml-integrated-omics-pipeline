@@ -1,6 +1,6 @@
 # Integrative Analysis of Molecular Subtypes in Acute Myeloid Leukemia
 
-An R-based pipeline for integrated differential analysis of DNA methylation and RNA-seq data in acute myeloid leukemia (AML).
+An R-based pipeline for integrated differential analysis of DNA methylation and RNA-seq data in acute myeloid leukemia (AML). Completed on behalf of Sadreyev Labs at Massachusetts General Hospital and Harvard Medical School under PI Dr. Ruslan Sadreyev.
 
 ## Table of Contents
 - [Project Overview](#project-overview)
