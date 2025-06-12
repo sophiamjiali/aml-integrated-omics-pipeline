@@ -39,10 +39,6 @@ The pipeline consists of the following main steps:
 
 **4. Differential Analysis:**
 
-
-
-**3. Differential Methylation**
-**4. Differential Expression**
 **5. Integration**
 
 ## Features
