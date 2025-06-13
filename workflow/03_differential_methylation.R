@@ -217,3 +217,37 @@ split_dmgs <- function(dmgs, paths, config) {
   return(split_dmgs)
 }
 
+# ===| F. Generate Methylation Summary |========================================
+
+generate_methylation_summary <- function(methylation_cohorts, promoters, cpg_anno) {
+  
+  message("Generating methylation summary...")
+  
+  # --- Calculate gene-level methylation across all samples ---
+  all_beta <- cbind(assays(methylation_cohorts$grp1)$beta, 
+                    assays(methylation_cohorts$grp2)$beta)
+  
+  overlaps <- findOverlaps(cpg_anno, promoters, ignore.strand = TRUE)
+  cpg_to_gene <- data.frame(
+    probeID = cpg_anno$probeID[queryHits(overlaps)],
+    gene = promoters$symbol[subjectHits(overlaps)]
+  )
+  
+  all_beta <- all_beta[rownames(all_beta) %in% cpg_to_gene$probeID, , drop = FALSE]
+  beta_with_gene <- cbind(
+    gene = cpg_to_gene$gene[match(rownames(all_beta), cpg_to_gene$probeID)],
+    all_beta
+  )
+  
+  beta_with_gene <- as.data.frame(beta_with_gene)
+  beta_with_gene[, -1] <- lapply(beta_with_gene[, -1], as.numeric) 
+  
+  # --- Aggregate beta values per gene ---
+  gene_beta <- beta_with_gene %>%
+    group_by(gene) %>%
+    summarize(across(everything(), function(x) mean(x, na.rm = TRUE)))
+  gene_beta <- as.matrix(gene_beta)
+  
+  message("Successfully aggregated gene-level methylation")
+  return (gene_beta)
+}
