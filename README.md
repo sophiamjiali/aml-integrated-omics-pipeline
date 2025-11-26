@@ -17,8 +17,7 @@ An R-based pipeline for integrated differential analysis of DNA methylation and 
 - [File Descriptions](#file-descriptions)
 - [Methods](#methods)
 - [Example Dataset](#example-dataset)
-- [Contact]
-- 
+  
 ## Project Overview
 
 This repository contains a pipeline for integrated differential analysis of DNA methylation and RNA-seq data for acute myeloid leukemia (AML) datasets. 
