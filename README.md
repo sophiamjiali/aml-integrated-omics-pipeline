@@ -36,15 +36,9 @@ The pipeline consists of the following main steps:
 
 **3. Preprocessing:** The standardized data is subsetted by cohort and preprocessed for quality control, filtering, imputation, and normalization as specified in the associated configuration file. 
 
-**4. Differential Analysis:**
+**4. Differential Analysis:** .
 
-**5. Integration**
-
-## Features
-
-## Installation
-  ### Prerequisites
-  ### Dependency Installation
+**5. Integration** .
 
 ## Usage
 
